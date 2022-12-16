@@ -9,7 +9,7 @@ public class FacebookLogin {
 	public static void main(String[] args) throws InterruptedException {
 		
 		
-		System.setProperty("webdriver.chrome.driver", "drivers/chrome");
+		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
 		
 		WebDriver driver = new ChromeDriver();
 		
