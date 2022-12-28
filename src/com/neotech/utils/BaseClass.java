@@ -27,7 +27,7 @@ public class BaseClass {
 			driver = new FirefoxDriver();
 			break;
 		default:
-			throw new RuntimeException("Browser is not suppoerted!");
+			throw new RuntimeException("Browser is not supported!");
 		}
 
 		driver.manage().window().maximize();
