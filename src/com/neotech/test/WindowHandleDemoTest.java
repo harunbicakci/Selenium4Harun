@@ -20,7 +20,7 @@ public class WindowHandleDemoTest extends CommonMethods{
 		click(driver.findElement(By.linkText("Help")));
 		wait(2);
 		
-		swithToChildWindow();
+		switchToChildWindow();
 
 		System.out.println("Title --> " + driver.getTitle());
 		System.out.println("Handle --> " + driver.getWindowHandle());

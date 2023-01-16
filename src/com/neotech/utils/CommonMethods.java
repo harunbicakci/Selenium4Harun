@@ -192,7 +192,7 @@ public class CommonMethods extends BaseClass{
 	/**
 	 * This method switches to the child window
 	 */
-	public static void swithToChildWindow() {
+	public static void switchToChildWindow() {
 		String mainWindow = driver.getWindowHandle();
 		Set<String> handles = driver.getWindowHandles();
 		
