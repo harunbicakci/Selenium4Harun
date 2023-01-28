@@ -37,11 +37,6 @@ public class LoginTest extends CommonMethods{
 			System.out.println("Login test failed!");
 		}
 		
-		
-		
-		
-		
-		
 		tearDown();
 		
 	}

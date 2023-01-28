@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebElement;
@@ -248,6 +249,80 @@ public class CommonMethods extends BaseClass{
 		
 	}
 	
+	/**
+	 * This method will cast the driver to a JavascriptExecutor and return it
+	 * 
+	 * @return
+	 */
+	public static JavascriptExecutor getJSObject() {
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return js;
+		// in one line
+	//	return (JavascriptExecutor) driver;
+	}
 	
+	/**
+	 * This method will click on an element that is passed 
+	 * using JavascriptExecutor
+	 * 
+	 * @param element
+	 */
+	public static void jsClick(WebElement element) {
+		
+		getJSObject().executeScript("arguments[0].click();", element);
+	}
+	
+	/**
+	 * This method will scroll the page until specific element is in view
+	 * 
+	 * @param element
+	 */
+	public static void scrollToElement (WebElement element) {
+		
+		getJSObject().executeScript("arguments[0].scrollIntoView(true)", element);
+	}
+	
+	/**
+	 * This method will scroll the page down based on the pixel parameter
+	 * 
+	 * @param pixel
+	 */
+	public static void scrollDown(int pixel) {
+		
+		getJSObject().executeAsyncScript("window.scrollBy(0,"+pixel+")");
+	}
+	
+	/**
+	 * This method will scroll the page up based on the pixel parameter
+	 * 
+	 * @param pixel
+	 */
+	public static void scrollUp(int pixel) {
+		
+		getJSObject().executeAsyncScript("window.scrollBy(0,-"+pixel+")");
+	}
+	
+	
+	/**
+	 * This method will select a date from calendar
+	 * 
+	 * @param elements
+	 * @param date
+	 */
+	public static void selectCalendarDate(List<WebElement> elements, String date) {
+		
+		for(WebElement day : elements) {
+			if(day.isEnabled()) {
+				if(day.getText().equals(date)) {
+					day.click();
+					break;
+				}
+			}else {
+				System.out.println("This day is NOT enabled!");
+				break;
+			}
+		}	
+	}
 	
 }
